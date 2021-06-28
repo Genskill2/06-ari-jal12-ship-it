@@ -1,6 +1,10 @@
+#include <ctype.h>
+
+
 string ari(string s)
 {
-	int ch=0, word=0, sentence=0, ARI;
+	int ch=0, word=0, sentence=0;
+	float ARI;
 	for(int i=0; i<sizeof(s); i++)
 	{
 		if(isalnum(s[i]))
@@ -9,8 +13,8 @@ string ari(string s)
 			word++;
 		else if(s[i] == '.')
 			sentence++;
-		ARI = 4.71(ch/word) + 0.5(word/sentence) - 21.43;
-		switch(int(ARI))
+		ARI = 4.71*(ch/word) + 0.5*(word/sentence) - 21.43;
+		switch((int)ARI)
 		{
 			case 1: 
 			
@@ -76,4 +80,5 @@ string ari(string s)
 	}
 	return 0;
 }
-			
+
+		
