@@ -1,5 +1,5 @@
 #include <ctype.h>
-
+#include <cs50.h>
 
 string ari(string s)
 {
@@ -11,7 +11,7 @@ string ari(string s)
 			ch++;
 		else if(s[i] == ' ')
 			word++;
-		else if(s[i] == '.')
+		else if(s[i] == '.' || s[i] == '?')
 			sentence++;
 		ARI = 4.71*(ch/word) + 0.5*(word/sentence) - 21.43;
 		switch((int)ARI)
