@@ -13,20 +13,24 @@ string ari(string s)
 		if(isalnum(s[i])) 
 			ch++;
 	
-		else if(s[i] == ' ') 
+		else if(s[i] == ' ')
 			word++;
-		
-		else if(s[i] == '.' || s[i] == '?' || s[i] == '!') 
-			sentence++;
 			
-				
+		else if(s[i] == '.' || s[i] == '?' || s[i] == '!') {
+			if(i+1 < strlen(s) && isalpha(s[i+1])){
+				ch++;
+				i+=2;
+			}
+			else sentence++;
+		}
+
 	}
-	printf("%d %d %d\n", ch, word, sentence);		
 	ARI = 4.71*ch/word + 0.5*word/sentence - 21.43;
-	printf("%f", ARI);
-	printf("%d", (int)ARI);
 	switch((int)ceil(ARI))
 	{
+		case 0: 
+			return "Invalid";
+			break;
 		case 1: 
 			return "Kindergarten";
 			break;
@@ -84,10 +88,10 @@ string ari(string s)
 			break;
 				 
 		default: 
-			return 0;
+			return "Professor";
 			break;
 	}
-	return 0;
+	return "exit";
 }
 
 		
